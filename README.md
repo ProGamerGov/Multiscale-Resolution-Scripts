@@ -6,13 +6,15 @@ The Multiscale Resolution technique (commonly called "multires") makes use of ev
 
 ## Setup
 
-First download the linear-color-transfer.py, and lum-transfer.py scripts from [Neural-Tools](https://github.com/ProGamerGov/Neural-Tools):
+For the histogram matching scripts, you must first download the linear-color-transfer.py, and lum-transfer.py scripts from [Neural-Tools](https://github.com/ProGamerGov/Neural-Tools):
 
 ```
 wget -c https://raw.githubusercontent.com/ProGamerGov/Neural-Tools/master/linear-color-transfer.py
 
 wget -c https://raw.githubusercontent.com/ProGamerGov/Neural-Tools/master/lum-transfer.py
 ```
+
+Scripts that require specific models and/or specific scripts, will detail these requirements at the top of the script. They will tell you where and how to get the required files.
 
 ## Usage
 
