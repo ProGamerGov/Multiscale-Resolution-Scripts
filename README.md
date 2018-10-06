@@ -2,7 +2,7 @@
 
 These scripts make use of a technique described in the paper [Controlling Perceptual Factors in Neural Style Transfer](https://arxiv.org/abs/1611.07865) by Leon A. Gatys, Alexander S. Ecker, Matthias Bethge, Aaron Hertzmann and Eli Shechtman. While the multiscale effect with style transfer had already been discovered, it was only after the paper that people realized the significance of it. 
 
-The Multiscale Resolution technique makes use of ever increasing image sizes to create larger stylized output images, without the problems that starting at such a large size would have.  
+The Multiscale Resolution technique (commonly called "multires") makes use of ever increasing image sizes to create larger stylized output images, without the problems that starting at such a large size would have. The idea has also been used with GANs to create even higher resolution images than ever before.    
 
 ## Setup
 
