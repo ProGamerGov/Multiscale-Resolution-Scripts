@@ -1,4 +1,6 @@
 # This variant of multires uses this modified version of Neural-Style: https://gist.github.com/ProGamerGov/bcbd27a3d2e431adb73ef158d9990d93
+# You can download it via: 
+# wget https://gist.githubusercontent.com/ProGamerGov/bcbd27a3d2e431adb73ef158d9990d93/raw/1e7ecd1c9aecaead0d92e3eb0027baa3fa2c4f31/neural_style_seg.lua
 
 CONTENT_IMAGE=content_image.jpg
 STYLE_IMAGE=style_image.png
