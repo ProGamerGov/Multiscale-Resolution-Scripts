@@ -38,6 +38,8 @@ By default these scripts likely won't produce good results, so you are encourage
 
 * More steps seem to let smaller details develop more than when just simply using as few steps as possible. 
 
+* You can take the output from one of these scripts, and then use it at the input (by adding `-init_image` to step 1) used when running the same script again, in order to get forms/content from the style image to be more "complete" in the output image. You can then repeat this many times to enhance it's effect. The effect begins to diminish significantly after doing it over 5 times with an output image, according to my experiments. 
+
 * These scripts are designed to use [jcjohnson's neural-style](https://github.com/jcjohnson/neural-style), [neural-style-pt](https://github.com/ProGamerGov/neural-style-pt), and any similar style transfer scripts.
 
 To run the scripts, you can use: 
