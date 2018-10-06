@@ -1,5 +1,9 @@
 # Multiscale Resolution Scripts 
 
+These scripts make use of a technique described in the paper [Controlling Perceptual Factors in Neural Style Transfer](https://arxiv.org/abs/1611.07865) by Leon A. Gatys, Alexander S. Ecker, Matthias Bethge, Aaron Hertzmann and Eli Shechtman. While the multiscale effect with style transfer had already been discovered, it was only after the paper that people realized the significance of it. 
+
+The Multiscale Resolution technique makes use of ever increasing image sizes to create larger stylized output images, without the problems that starting at such a large size would have.  
+
 ## Setup
 
 First download the linear-color-transfer.py, and lum-transfer.py scripts from [Neural-Tools](https://github.com/ProGamerGov/Neural-Tools):
