@@ -14,7 +14,19 @@ wget -c https://raw.githubusercontent.com/ProGamerGov/Neural-Tools/master/linear
 wget -c https://raw.githubusercontent.com/ProGamerGov/Neural-Tools/master/lum-transfer.py
 ```
 
-Scripts that require specific models and/or specific scripts, will detail these requirements at the top of the script. They will tell you where and how to get the required files.
+The "seg" scripts require the [segmentation supporting modification of Neural-Style](https://gist.github.com/ProGamerGov/bcbd27a3d2e431adb73ef158d9990d93): 
+
+```
+wget https://gist.githubusercontent.com/ProGamerGov/bcbd27a3d2e431adb73ef158d9990d93/raw/1e7ecd1c9aecaead0d92e3eb0027baa3fa2c4f31/neural_style_seg.lua
+```
+
+The "cp" scripts require the channel pruning model from [channel-pruning](https://github.com/yihui-he/channel-pruning):
+
+```
+ wget https://github.com/yihui-he/channel-pruning/releases/download/channel_pruning_5x/channel_pruning.caffemodel
+ 
+ wget https://github.com/yihui-he/channel-pruning/releases/download/channel_pruning_5x/channel_pruning.prototxt
+```
 
 ## Usage
 
