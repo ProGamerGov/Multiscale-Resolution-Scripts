@@ -38,7 +38,7 @@ By default these scripts likely won't produce good results, so you are encourage
 
 * More steps seem to let smaller details develop more than when just simply using as few steps as possible. 
 
-* You can take the output from one of these scripts, and then use it at the input (by adding `-init_image` to step 1) used when running the same script again, in order to get forms/content from the style image to be more "complete" in the output image. You can then repeat this many times to enhance it's effect. The effect begins to diminish significantly after doing it over 5 times with an output image, according to my experiments. 
+* You can take the output from one of these scripts, and then use it at the input (by adding `-init_image` to step 1) used when running the same script again, in order to get forms/content from the style image to be more "complete" in the output image. You can then repeat this many times to enhance it's effect. The effect begins to diminish significantly after doing it over 5 times with an output image, according to my experiments. Starting with a style scale higher than `1` on the first script run, and then lowering it by `0.25` after in each subsequent run, can also greatly increase the detail on your final output image. 
 
 * When using `-init image` in steps after step 1, if you don't specify a seed value then the output seems to remain mostly the same. Specifying a seed value will make sure that the final output always looks the same.  
 
