@@ -1,14 +1,21 @@
 CONTENT_IMAGE=content_image.jpg
 STYLE_IMAGE=style_image.png
 
-INTERPRETER=python
-NEURAL_STYLE=neural_style.py
+INTERPRETER=python3
+SCRIPT=neural_style.py
+
+NEURAL_STYLE=$INTERPRETER
+NEURAL_STYLE+=" "
+NEURAL_STYLE+=$SCRIPT
+
+# Uncomment if using pip package
+#NEURAL_STYLE=neural-style
 
 
 # Histogram Matching from style image to content image
 python linear-color-transfer.py --target_image $CONTENT_IMAGE --source_image $STYLE_IMAGE --output_image content_colored_pca.png
 
-$INTERPRETER $NEURAL_STYLE \
+$NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image \
@@ -19,7 +26,7 @@ $INTERPRETER $NEURAL_STYLE \
   
 python linear-color-transfer.py --target_image out1.png --source_image $STYLE_IMAGE --output_image out1_hist_colored_pca.png
   
-$INTERPRETER $NEURAL_STYLE \
+$NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out1_hist_colored_pca.png \
@@ -30,7 +37,7 @@ $INTERPRETER $NEURAL_STYLE \
  
 python linear-color-transfer.py --target_image out2.png --source_image $STYLE_IMAGE --output_image out2_hist_colored_pca.png
 
-$INTERPRETER $NEURAL_STYLE \
+$NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out2_hist_colored_pca.png \
@@ -41,7 +48,7 @@ $INTERPRETER $NEURAL_STYLE \
 
 python linear-color-transfer.py --target_image out3.png --source_image $STYLE_IMAGE --output_image out3_hist_colored_pca.png
 
-$INTERPRETER $NEURAL_STYLE \
+$NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out3_hist_colored_pca.png \
@@ -52,7 +59,7 @@ $INTERPRETER $NEURAL_STYLE \
 
 python linear-color-transfer.py --target_image out4.png --source_image $STYLE_IMAGE --output_image out4_hist_colored_pca.png
 
-$INTERPRETER $NEURAL_STYLE \
+$NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out4_hist_colored_pca.png \
@@ -63,7 +70,7 @@ $INTERPRETER $NEURAL_STYLE \
 
 python linear-color-transfer.py --target_image out5.png --source_image $STYLE_IMAGE --output_image out5_hist_colored_pca.png
 
-$INTERPRETER $NEURAL_STYLE \
+$NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out5_hist_colored_pca.png \
@@ -74,7 +81,7 @@ $INTERPRETER $NEURAL_STYLE \
 
 python linear-color-transfer.py --target_image out6.png --source_image $STYLE_IMAGE --output_image out6_hist_colored_pca.png
 
-$INTERPRETER $NEURAL_STYLE \
+$NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out6_hist_colored_pca.png \
@@ -85,7 +92,7 @@ $INTERPRETER $NEURAL_STYLE \
 
 python linear-color-transfer.py --target_image out7.png --source_image $STYLE_IMAGE --output_image out7_hist_colored_pca.png
 
-$INTERPRETER $NEURAL_STYLE \
+$NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out7_hist_colored_pca.png \
