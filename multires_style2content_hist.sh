@@ -1,8 +1,8 @@
 CONTENT_IMAGE=content_image.jpg
 STYLE_IMAGE=style_image.png
 
-INTERPRETER=python3
-SCRIPT=neural_style.py
+INTERPRETER=python3 # Replace with 'th' for neural_style.lua or 'python' for python 2
+SCRIPT=neural_style.py # Replace with 'neural_style.lua' for the original neural-style
 
 NEURAL_STYLE=$INTERPRETER
 NEURAL_STYLE+=" "
