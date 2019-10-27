@@ -13,7 +13,7 @@ NEURAL_STYLE+=$SCRIPT
 
 # Input Images
 CONTENT_IMAGE=content_image.jpg
-STYLE_IMAGE=style_image.png
+STYLE_IMAGE="style_image.png"
 
 # Basic Parameters
 CONTENT_WEIGHT=5
