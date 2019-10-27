@@ -1,5 +1,4 @@
-CONTENT_IMAGE=content_image.jpg
-STYLE_IMAGE=style_image.png
+# Multiscale Generation With Histogram Matching
 
 INTERPRETER=python3 # Replace with 'th' for neural_style.lua or 'python' for python 2
 SCRIPT=neural_style.py # Replace with 'neural_style.lua' for the original neural-style
@@ -12,6 +11,16 @@ NEURAL_STYLE+=$SCRIPT
 #NEURAL_STYLE=neural-style
 
 
+# Input Images
+CONTENT_IMAGE=content_image.jpg
+STYLE_IMAGE=style_image.png
+
+# Basic Parameters
+CONTENT_WEIGHT=5
+STYLE_WEIGHT=100
+STYLE_SCALE=1
+MODEL_FILE='models/vgg19-d01eb7cb.pth'
+
 # Histogram Matching from style image to content image
 python linear-color-transfer.py --target_image $CONTENT_IMAGE --source_image $STYLE_IMAGE --output_image content_colored_pca.png
 
@@ -19,29 +28,32 @@ $NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image \
-  -tv_weight 0 -seed 876 -save_iter 500 -print_iter 50 -init image -backend cudnn -cudnn_autotune \
+  -tv_weight 0 -seed 876 -save_iter 500 -print_iter 50 -backend cudnn -cudnn_autotune \
+  -content_weight $CONTENT_WEIGHT -style_weight $STYLE_WEIGHT -style_scale $STYLE_SCALE -model_file $MODEL_FILE \
   -output_image out1.png \
   -image_size 640 \
-  -num_iterations 1500 
-  
+  -num_iterations 1500
+
 python linear-color-transfer.py --target_image out1.png --source_image $STYLE_IMAGE --output_image out1_hist_colored_pca.png
-  
+
 $NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out1_hist_colored_pca.png \
-  -tv_weight 0 -seed 876 -save_iter 500 -print_iter 50 -init image -backend cudnn -cudnn_autotune \
+  -tv_weight 0 -seed 876 -save_iter 500 -print_iter 50 -backend cudnn -cudnn_autotune \
+  -content_weight $CONTENT_WEIGHT -style_weight $STYLE_WEIGHT -style_scale $STYLE_SCALE -model_file $MODEL_FILE \
   -output_image out2.png \
   -image_size 768 \
   -num_iterations 1000
- 
+
 python linear-color-transfer.py --target_image out2.png --source_image $STYLE_IMAGE --output_image out2_hist_colored_pca.png
 
 $NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out2_hist_colored_pca.png \
-  -tv_weight 0 -seed 876 -save_iter 0 -print_iter 50 -init image -backend cudnn -cudnn_autotune \
+  -tv_weight 0 -seed 876 -save_iter 0 -print_iter 50 -backend cudnn -cudnn_autotune \
+  -content_weight $CONTENT_WEIGHT -style_weight $STYLE_WEIGHT -style_scale $STYLE_SCALE -model_file $MODEL_FILE \
   -image_size 1024 \
   -num_iterations 500 \
   -output_image out3.png \
@@ -52,7 +64,8 @@ $NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out3_hist_colored_pca.png \
-  -tv_weight 0 -seed 876 -save_iter 0 -print_iter 50 -init image -backend cudnn -cudnn_autotune \
+  -tv_weight 0 -seed 876 -save_iter 0 -print_iter 50 -backend cudnn -cudnn_autotune \
+  -content_weight $CONTENT_WEIGHT -style_weight $STYLE_WEIGHT -style_scale $STYLE_SCALE -model_file $MODEL_FILE \
   -image_size 1152 \
   -num_iterations 200 \
   -output_image out4.png \
@@ -63,7 +76,8 @@ $NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out4_hist_colored_pca.png \
-  -tv_weight 0 -seed 876 -save_iter 0 -print_iter 50 -init image -backend cudnn -cudnn_autotune \
+  -tv_weight 0 -seed 876 -save_iter 0 -print_iter 50 -backend cudnn -cudnn_autotune \
+  -content_weight $CONTENT_WEIGHT -style_weight $STYLE_WEIGHT -style_scale $STYLE_SCALE -model_file $MODEL_FILE \
   -image_size 1536 \
   -num_iterations 200 \
   -output_image out5.png \
@@ -74,7 +88,8 @@ $NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out5_hist_colored_pca.png \
-  -tv_weight 0 -seed 876 -save_iter 0 -print_iter 50 -init image -backend cudnn -cudnn_autotune \
+  -tv_weight 0 -seed 876 -save_iter 0 -print_iter 50 -backend cudnn -cudnn_autotune \
+  -content_weight $CONTENT_WEIGHT -style_weight $STYLE_WEIGHT -style_scale $STYLE_SCALE -model_file $MODEL_FILE \
   -image_size 1664 \
   -num_iterations 200 \
   -output_image out6.png \
@@ -85,7 +100,8 @@ $NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out6_hist_colored_pca.png \
-  -tv_weight 0 -seed 876 -save_iter 100 -print_iter 50 -init image -backend cudnn -cudnn_autotune -optimizer adam \
+  -tv_weight 0 -seed 876 -save_iter 100 -print_iter 50 -backend cudnn -cudnn_autotune -optimizer adam \
+  -content_weight $CONTENT_WEIGHT -style_weight $STYLE_WEIGHT -style_scale $STYLE_SCALE -model_file $MODEL_FILE \
   -image_size 1920 \
   -num_iterations 200 \
   -output_image out7.png
@@ -96,7 +112,8 @@ $NEURAL_STYLE \
   -content_image content_colored_pca.png \
   -style_image $STYLE_IMAGE \
   -init image -init_image out7_hist_colored_pca.png \
-  -tv_weight 0 -seed 876 -save_iter 100 -print_iter 50 -init image -backend cudnn -cudnn_autotune -optimizer adam \
+  -tv_weight 0 -seed 876 -save_iter 100 -print_iter 50 -backend cudnn -cudnn_autotune -optimizer adam \
+  -content_weight $CONTENT_WEIGHT -style_weight $STYLE_WEIGHT -style_scale $STYLE_SCALE -model_file $MODEL_FILE \
   -image_size 2125 \
   -num_iterations 200 \
   -output_image out8.png
